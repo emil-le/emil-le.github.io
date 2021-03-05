@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 code need to fix | Geometry and topology statistical inference with applications.</title>
+  <meta name="description" content="Capstone Project." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 code need to fix | Geometry and topology statistical inference with applications." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Capstone Project." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 code need to fix | Geometry and topology statistical inference with applications." />
+  
+  <meta name="twitter:description" content="Capstone Project." />
+  
+
+<meta name="author" content="Emil Le" />
+
+
+<meta name="date" content="2021-03-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="random.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/rglWebGL-binding-0.104.16/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-0.104.16/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-0.104.16/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-0.104.16/CanvasMatrix.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/combineWidgetStyle-0.1/combineWidgets.css" rel="stylesheet" />
+<script src="libs/combineWidgets-binding-0.10.1/combineWidgets.js"></script>
+<script src="libs/rglPlayer-binding-0.104.16/rglPlayer.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#homeomorphism"><i class="fa fa-check"></i><b>1.1</b> Homeomorphism</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#differential-manifold"><i class="fa fa-check"></i><b>1.2</b> Differential Manifold</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#probability-measure"><i class="fa fa-check"></i><b>1.3</b> Probability measure</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistical-shape-matching.html"><a href="statistical-shape-matching.html"><i class="fa fa-check"></i><b>2</b> Statistical shape matching</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="statistical-shape-matching.html"><a href="statistical-shape-matching.html#intrinsic-data-analysis"><i class="fa fa-check"></i><b>2.1</b> Intrinsic data analysis</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="statistical-shape-matching.html"><a href="statistical-shape-matching.html#fréchet-mean-and-variance"><i class="fa fa-check"></i><b>2.1.1</b> Fréchet mean and variance</a></li>
+<li class="chapter" data-level="2.1.2" data-path="statistical-shape-matching.html"><a href="statistical-shape-matching.html#geodesics-and-arc-distance"><i class="fa fa-check"></i><b>2.1.2</b> Geodesics and arc distance</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="statistical-shape-matching.html"><a href="statistical-shape-matching.html#central-limit-theorem"><i class="fa fa-check"></i><b>2.2</b> Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="statistical-shape-matching.html"><a href="statistical-shape-matching.html#sample-estimator-for-frechet-mean"><i class="fa fa-check"></i><b>2.2.1</b> Sample Estimator for Frechet mean:</a></li>
+<li class="chapter" data-level="2.2.2" data-path="statistical-shape-matching.html"><a href="statistical-shape-matching.html#sample-estimator-for-frechet-variance"><i class="fa fa-check"></i><b>2.2.2</b> Sample Estimator for Frechet variance:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="statistical-shape-matching.html"><a href="statistical-shape-matching.html#geodesics-regression"><i class="fa fa-check"></i><b>2.3</b> Geodesics Regression</a></li>
+<li class="chapter" data-level="2.4" data-path="statistical-shape-matching.html"><a href="statistical-shape-matching.html#isomorphic-embedding"><i class="fa fa-check"></i><b>2.4</b> Isomorphic embedding</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="persistence-homology.html"><a href="persistence-homology.html"><i class="fa fa-check"></i><b>3</b> Persistence Homology</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="persistence-homology.html"><a href="persistence-homology.html#vietorisrips-complex"><i class="fa fa-check"></i><b>3.1</b> Vietoris–Rips complex</a></li>
+<li class="chapter" data-level="3.2" data-path="persistence-homology.html"><a href="persistence-homology.html#filtrations"><i class="fa fa-check"></i><b>3.2</b> Filtrations</a></li>
+<li class="chapter" data-level="3.3" data-path="persistence-homology.html"><a href="persistence-homology.html#reeb-graph-inference"><i class="fa fa-check"></i><b>3.3</b> Reeb Graph inference</a></li>
+<li class="chapter" data-level="3.4" data-path="persistence-homology.html"><a href="persistence-homology.html#confidence-set"><i class="fa fa-check"></i><b>3.4</b> Confidence Set</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="application.html"><a href="application.html"><i class="fa fa-check"></i><b>4</b> Application</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="application.html"><a href="application.html#gene-expression"><i class="fa fa-check"></i><b>4.1</b> Gene Expression</a></li>
+<li class="chapter" data-level="4.2" data-path="application.html"><a href="application.html#generative-model-for-gene-co-expression-network"><i class="fa fa-check"></i><b>4.2</b> Generative model for gene co-expression network</a></li>
+<li class="chapter" data-level="4.3" data-path="application.html"><a href="application.html#data-collection-and-pre-processing"><i class="fa fa-check"></i><b>4.3</b> Data Collection and Pre-processing</a></li>
+<li class="chapter" data-level="4.4" data-path="application.html"><a href="application.html#network-visualization"><i class="fa fa-check"></i><b>4.4</b> Network Visualization</a></li>
+<li class="chapter" data-level="4.5" data-path="application.html"><a href="application.html#heavy-tailed-distribution-analysis"><i class="fa fa-check"></i><b>4.5</b> Heavy tailed distribution analysis</a></li>
+<li class="chapter" data-level="4.6" data-path="application.html"><a href="application.html#betti-number-inference"><i class="fa fa-check"></i><b>4.6</b> Betti Number Inference</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="random.html"><a href="random.html"><i class="fa fa-check"></i><b>5</b> random</a></li>
+<li class="chapter" data-level="6" data-path="code-need-to-fix.html"><a href="code-need-to-fix.html"><i class="fa fa-check"></i><b>6</b> code need to fix</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Geometry and topology statistical inference with applications.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="code-need-to-fix" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> code need to fix</h1>
+<pre><code>read_svg_file2 &lt;- function(file_path, N = 100, r = 10) {
+  #Function require XML library. Read in the command in the SVG file
+  file_type = &quot;O&quot;
+  doc &lt;- XML::htmlParse(file_path)
+  p &lt;- XML::xpathSApply(doc, &quot;//path&quot;, XML::xmlGetAttr, &quot;d&quot;)
+  if (stringr::str_detect(p, &quot;z&quot;)) {
+    file_type = &quot;C&quot;
+  }
+  if (file_type == &quot;C&quot;) {
+    element &lt;- strsplit(p, &quot;\\, |\\,| &quot;)[[1]]
+    
+    #Create the starting point and make sure we create the starting point correctly
+    segment = c()
+    curr_pos = c(0,0)
+    pos = c(as.numeric(element[2]),as.numeric(element[3]))
+    curr_pos = curr_pos + pos
+    start_pos = curr_pos
+    control1 = c(as.numeric(element[5]), as.numeric(element[6]))
+    control2 = c(as.numeric(element[7]), as.numeric(element[8]))
+    end = c(as.numeric(element[9]), as.numeric(element[10]))
+    control1 = control1+curr_pos
+    control2 = control2+curr_pos
+    end = end + curr_pos
+    segment_part = matrix(c(start_pos[1],control1[1],
+                            control2[1],end[1],
+                            start_pos[2],control1[2],
+                            control2[2],end[2]),
+                          4,2)
+    segment = list()
+    segment[[1]] = segment_part
+    curr_pos = end
+    
+    j=2
+    for (i in seq(from = 11, to = length(element)-1, by = 6)) {
+      start_pos = curr_pos
+      control1 = c(as.numeric(element[i]), as.numeric(element[i+1]))
+      control2 = c(as.numeric(element[i+2]), as.numeric(element[i+3]))
+      end = c(as.numeric(element[i+4]), as.numeric(element[i+5]))
+      control1 = control1+curr_pos
+      control2 = control2+curr_pos
+      end = end + curr_pos
+      curr_pos = end
+      segment_part = matrix(c(start_pos[1],control1[1],
+                            control2[1],end[1],start_pos[2],
+                            control1[2],control2[2],
+                            end[2]),
+                          4,2)
+      segment[[j]] = segment_part
+      j = j+1
+    }
+    point &lt;- c()
+    for (i in 1:length(segment)) {
+      xy &lt;- knotR::bezier(segment[[i]], n = r) 
+      point &lt;- rbind(point, xy)
+    }
+    
+    point_resample &lt;- resample_curve(t(point), N = N)
+    return(point_resample)
+    
+    } else {
+    p_modified &lt;- stringr::str_extract_all(p,&quot;\\-?[0-9.cC]+&quot;)[[1]]
+    element &lt;- unlist(strsplit(p_modified, 
+                               &quot;(?=[A-Za-z])(?&lt;=[0-9])|(?=[0-9])(?&lt;=[A-Za-z])&quot;, perl=TRUE))
+    
+    
+    
+    segment = c()
+    curr_pos = c(0,0)
+    pos = c(as.numeric(element[1]),as.numeric(element[2]))
+    curr_pos = curr_pos + pos
+    start_pos = curr_pos
+    control1 = c(as.numeric(element[4]), as.numeric(element[5]))
+    control2 = c(as.numeric(element[6]), as.numeric(element[7]))
+    end = c(as.numeric(element[8]), as.numeric(element[9]))
+    control1 = control1+curr_pos
+    control2 = control2+curr_pos
+    end = end + curr_pos
+    segment_part = matrix(c(start_pos[1],control1[1],
+                            control2[1],end[1],start_pos[2],
+                            control1[2],control2[2],end[2]),
+                          4,2)
+    segment = list()
+    segment[[1]] = segment_part
+    curr_pos = end
+    j=2
+    
+    for (i in seq(from = 9, to = length(element), by = 7)) {
+      start_pos = curr_pos
+      control1 = c(as.numeric(element[i+1]), as.numeric(element[i+2]))
+      control2 = c(as.numeric(element[i+3]), as.numeric(element[i+4]))
+      end = c(as.numeric(element[i+5]), as.numeric(element[i+6]))
+      if (element[i] != &quot;C&quot;) {
+        control1 = control1+curr_pos
+        control2 = control2+curr_pos
+        end = end + curr_pos
+      }
+      curr_pos = end
+      segment_part = matrix(c(start_pos[1],control1[1],
+                            control2[1],end[1],start_pos[2],
+                            control1[2],control2[2],end[2]),
+                            4,2)
+      segment[[j]] = segment_part
+      j = j+1
+    }
+    point &lt;- c()
+    for(i in 1:length(segment)){
+      xy &lt;- knotR::bezier(segment[[i]], n=4)
+      point &lt;- rbind(point, xy)
+    }
+    point_resample &lt;- resample_curve(t(point), N = N)
+    return(point_resample)
+  }
+}
+
+num_spline = 2
+path = NULL
+#path = paste(&quot;/Users/macalesteritsloaner/Downloads/bookdown-demo-master/dataset/spline/no.svg&quot;,1:num_spline,&quot;.html&quot;, sep = &quot;&quot;)
+#write.csv(path, file = &quot;/Users/macalesteritsloaner/Downloads/bookdown-demo-master/dataset/spline/pathinfo.csv&quot;, row.names = FALSE)
+#path = &quot;/Users/macalesteritsloaner/Downloads/bookdown-demo-master/dataset/spline/pathinfo.csv&quot;
+
+verify_sample_shapes &lt;- function(pathname){
+  fid = read.table(pathname,stringsAsFactors = FALSE)[[1]]
+  for (i in 2:length(fid)) {
+    fname = fid[i]
+    X = read_svg_file2(fname)
+    X = t(X)
+    print(X)
+    plot_curve(X,&#39;r&#39;, l = FALSE, filename = fname)
+  }
+}
+#verify_sample_shapes(path)
+
+fastmarch = function(TRIV, X, Y, Z, src, opt) {
+  mode = 1
+
+  if ((mode &amp; length(src)) != prod(dim(X))) {
+    error(&#39;src must be nvx1 in the single source mode.&#39;)
+  }
+  
+  idx = which(src==0)
+  srclabel = matrix(0,length(src),1)
+  srclabel[idx] = seq(length(idx))
+  temp = fastmarch1_mex(int32(TRIV-1), 
+                           double(rbind(prod(dim(src)), prod(dim(srclabel))), 
+                           double(prod(dim(X))), 
+                           double(prod(dim(Y))), 
+                           double(prod(dim(Z)))
+                           )
+  )
+    
+  D = temp$D
+  L = temp$L
+  D[D&gt;=9999999] = Inf
+  return(list(&#39;D&#39;=D,&#39;L&#39;=L))
+}</code></pre>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="random.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-conclusion.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
