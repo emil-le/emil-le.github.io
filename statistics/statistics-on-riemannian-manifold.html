@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Statistics on Riemannian Manifold | Statistical methods on Riemannian manifold with applications.</title>
+  <meta name="description" content="Capstone Project." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Statistics on Riemannian Manifold | Statistical methods on Riemannian manifold with applications." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Capstone Project." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Statistics on Riemannian Manifold | Statistical methods on Riemannian manifold with applications." />
+  
+  <meta name="twitter:description" content="Capstone Project." />
+  
+
+<meta name="author" content="Emil Le" />
+
+
+<meta name="date" content="2021-03-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="geodesics-regression.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/rglWebGL-binding-0.104.16/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-0.104.16/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-0.104.16/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-0.104.16/CanvasMatrix.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#project-outline"><i class="fa fa-check"></i><b>1.2</b> Project outline</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#what-is-a-manifold"><i class="fa fa-check"></i><b>1.3</b> What is a Manifold?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="statistics-on-riemannian-manifold.html"><a href="statistics-on-riemannian-manifold.html"><i class="fa fa-check"></i><b>2</b> Statistics on Riemannian Manifold</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="statistics-on-riemannian-manifold.html"><a href="statistics-on-riemannian-manifold.html#riemannian-manifold"><i class="fa fa-check"></i><b>2.1</b> Riemannian Manifold</a></li>
+<li class="chapter" data-level="2.2" data-path="statistics-on-riemannian-manifold.html"><a href="statistics-on-riemannian-manifold.html#instrinsic-moments"><i class="fa fa-check"></i><b>2.2</b> Instrinsic moments</a></li>
+<li class="chapter" data-level="2.3" data-path="statistics-on-riemannian-manifold.html"><a href="statistics-on-riemannian-manifold.html#asymtomtic-behavior"><i class="fa fa-check"></i><b>2.3</b> Asymtomtic behavior</a></li>
+<li class="chapter" data-level="2.4" data-path="statistics-on-riemannian-manifold.html"><a href="statistics-on-riemannian-manifold.html#normal-distribution"><i class="fa fa-check"></i><b>2.4</b> Normal distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="geodesics-regression.html"><a href="geodesics-regression.html"><i class="fa fa-check"></i><b>3</b> Geodesics Regression</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="geodesics-regression.html"><a href="geodesics-regression.html#motivation-1"><i class="fa fa-check"></i><b>3.1</b> Motivation</a></li>
+<li class="chapter" data-level="3.2" data-path="geodesics-regression.html"><a href="geodesics-regression.html#geodesics-regression-1"><i class="fa fa-check"></i><b>3.2</b> Geodesics Regression</a></li>
+<li class="chapter" data-level="3.3" data-path="geodesics-regression.html"><a href="geodesics-regression.html#least-square-estimate"><i class="fa fa-check"></i><b>3.3</b> Least Square Estimate</a></li>
+<li class="chapter" data-level="3.4" data-path="geodesics-regression.html"><a href="geodesics-regression.html#application"><i class="fa fa-check"></i><b>3.4</b> Application</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a>
+<ul>
+<li class="chapter" data-level="3.5" data-path="conclusion.html"><a href="conclusion.html#references"><i class="fa fa-check"></i><b>3.5</b> References</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical methods on Riemannian manifold with applications.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistics-on-riemannian-manifold" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Statistics on Riemannian Manifold</h1>
+<div id="riemannian-manifold" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Riemannian Manifold</h2>
+<p>An important property that an <span class="math inline">\(n-\)</span>manifold <span class="math inline">\(\mathcal{M}\)</span> has is that it is compact (by defninition) and is metricizable (Urysohn’s theorem). In this section, we want to construct a metric for an abstract manifold whose properties allow us to do calculus. Recall that the tangent space is <span class="math inline">\(\mathcal{M}\)</span> is homeomorphic to <span class="math inline">\(\mathbb{R}^n\)</span>, we define Riemannian metric as one that maps a vector in the tangent space to its norm (essentially quantify the vector):</p>
+<p><b>Definition</b>
+Let <span class="math inline">\(T_p\mathcal{M}\)</span> be the tangent space of a point <span class="math inline">\(p\)</span> in an differentiable manifold <span class="math inline">\(\mathcal{M}\subset \mathbb{R}^n\)</span>. The Riemannian manifold is defined as the topological space on <span class="math inline">\(\mathcal{M}\)</span> induced by the Riemannian metric <span class="math inline">\(\rho\)</span> by:
+<span class="math display">\[
+\begin{aligned}
+   \langle ., .\rangle_p: T_p\mathcal{M}\times T_p\mathcal{M} &amp;\rightarrow \mathbb{R}\\
+ \vec{\mathbf{v}} &amp;\longmapsto  \sqrt{\langle \vec{\mathbf{v}},\vec{\mathbf{v}} \rangle_p}\\
+\end{aligned}
+\]</span>
+Recall that in a plane, there many way that we can go from one point to another, but the shortest path is a straight line. We want to construct similar idea on the manifold is defined through curve and geodesics. A curve on a manifold is a path that connects 2 arbitrary point on <span class="math inline">\(\mathcal{M}\)</span> (i.e. how can we go from one point to another). The geodesics between 2 arbitrary point on a manifold is simply the shortest curve containing those 2.</p>
+<p><b>Definition</b>
+A curve in <span class="math inline">\(\mathcal{M}\)</span> is defined as <span class="math inline">\(\gamma: [0,1]\to \mathcal{M}\)</span> such that <span class="math inline">\(\gamma\)</span> is differentiable. The length of a curve is defined as
+<span class="math display">\[L(\gamma) = \int_0^1 \sqrt{\langle \gamma(t)^{&#39;} \rangle_{\gamma(t)}} dt\]</span></p>
+<p><b>Definition</b> The geodesics between arbitrary <span class="math inline">\(x,y\in\mathcal{M}\)</span> is given by the metric <span class="math inline">\(\rho: \mathcal{M}\times \mathcal{M} \to \mathbb{R}\)</span>:
+<span class="math display">\[
+\rho(x,y) = \inf\{L(\gamma) \vert \gamma(0) = x, \gamma(1) = y)\}
+\]</span></p>
+Equipped together, (<span class="math inline">\(\mathcal{M},\rho\)</span>) is a Rienmannian manifold. Figure below visualize a tangent vector at the point Saint Paul and a geodesics between Saint Paul and Ho Chi Minh City on a sphere.
+<center>
+<p><img src="dataset/geode.png" width="350" /></p>
+Figure 2.1: The geodesics between Saint Paul and Ho Chi Minh City on Earth!
+</center>
+</div>
+<div id="instrinsic-moments" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Instrinsic moments</h2>
+<p>In order to give rigorous definition about probability in a manifold domain, there are quite several concepts in measure theory we need to be aware of. In general, a probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{P})\)</span> consists of 3 elements:</p>
+<ul>
+<li><p>Sample space <span class="math inline">\(\Omega\)</span>: the set of all possible outcome.</p></li>
+<li><p>Event space <span class="math inline">\(\mathcal{F}\)</span>: the collection of events, each event is a set of outcome in the sample space</p></li>
+<li><p>Probability measure <span class="math inline">\(\mathcal{P}:\mathcal{F}\to[0,1]\)</span> a function define the probability of events (which have satisfy a few axioms)</p></li>
+</ul>
+<p>Since this is quite out of scope to this project (which can be read more about in this <a href="https://statweb.stanford.edu/~adembo/stat-310b/lnotes.pdf">link</a>), we can simply think of the point of defining probability space <span class="math inline">\((\Omega,\mathcal{F},\mathbb{P})\)</span> is to “do” statistics in usual probability theory we have seen in class. For the purpose of this project, we assume the probability space are complete, a random variable would take places in <span class="math inline">\((\mathcal{M},\mathcal{B})\)</span> where <span class="math inline">\(\mathcal{M}\)</span> is complete Rienmannian manifold <span class="math inline">\(\mathcal{B}\)</span> is the Borel <span class="math inline">\(\sigma-\)</span>algebra generated by the topology induced by Rienmannian metric <span class="math inline">\(\rho\)</span>. For an abstract manifold, there are many ways we can define a “mean” such as intrinsic mean and extrinsic mean. Though for a Riemannian manifold with geodesic metric, we only focus on the intrinsic mean and variance.</p>
+<p><b>Definition</b> <u>Fréchet moments</u> Let <span class="math inline">\((\mathcal{M},\rho)\)</span> be abstract Riemannian manifold space with measure <span class="math inline">\(\mu\)</span>. The Fréchet mean and variance are defined respectively as:
+<span class="math display">\[\Theta^2 =\arg\inf_{p\in\mathcal{M}}\int_\mathcal{M} \rho(x,p)^2 d\mu(x)\]</span>
+<span class="math display">\[\sigma^2 =\inf_{p\in\mathcal{M}}\int_\mathcal{M} \rho(x,p)^2 d\mu(x)\]</span>
+It is worth to point out that <span class="math inline">\(\Theta^2\)</span> is a <u>collection</u> of Fréchet mean as the Fréchet mean is not guaranteed or unique in an abstract manifold. Although since the Riemannian manifold is a Hilbert space, there exists a unique global argument of the infimum so <span class="math inline">\(\Theta^2\)</span> is a singleton.Here, if we replace the domain <span class="math inline">\(\mathcal{M}\)</span>with <span class="math inline">\(\mathbb{R}^n\)</span>, then it is our usual understanding of expectation!</p>
+<p><strong>Definition:</strong> <u>Sample Fréchet mean and variance</u> Let there be finite collection of <span class="math inline">\(n\)</span> random variables <span class="math inline">\(\mathcal{X}_i: \Omega\to\mathcal{M}\)</span>, the sample Fréchet mean and variance is defined as:
+<span class="math display">\[\hat{\Theta}^2 = \arg\min_{p\in\mathcal{M}} \frac{1}{n}\sum_{i=1}^n \rho^2(\mathcal{X}_i,p)\]</span>
+<span class="math display">\[\hat\sigma^2 = \min_{p\in\mathcal{M}} \frac{1}{n}\sum_{i=1}^n \rho^2(\mathcal{X}_i,p)\]</span>
+By changing the geodesics metric with Eucledian metric for elements in <span class="math inline">\(\mathbb{R}^2\)</span>, we simply arrive at the sample mean and variance we typically seen! We need to prove that <span class="math inline">\(\hat\mu_F\)</span> and <span class="math inline">\(\hat\sigma_F\)</span> exist for <span class="math inline">\((\mathcal{M},\rho)\)</span> that is <u>complete</u>.</p>
+<p><u><i>Proof</i></u>
+Let <span class="math inline">\(X = \{x_1,x_2,\dots,x_n\}\subset\mathcal{M}\)</span> be a finite collection of <span class="math inline">\(n\)</span> points on a complete Riemannian space <span class="math inline">\((\mathcal{M},\rho)\)</span>. Let <span class="math inline">\(\mathcal{f}: \mathcal{M} \to \mathbb{R}\)</span> be given by
+<span class="math display">\[\mathcal{f}(m) = \sum_{i=1}^n \rho^2(m,x_i)\]</span>
+It is sufficient to show that <span class="math inline">\(\mathcal{f}(m)\)</span> achieves a minimum. Let <span class="math inline">\(\epsilon = \max\{\rho(x_i,x_j)\vert i\neq j\}\)</span> be the maximum distance, consider the finite union of closed <span class="math inline">\(\rho-\)</span>ball cenetered at <span class="math inline">\(x_i\)</span> <span class="math inline">\(\bar{B}_\rho(\epsilon,x_i)\)</span> for all <span class="math inline">\(x_i\in X\)</span>:
+<span class="math display">\[C = \bigcup_{i=1}^n \bar{B}_\rho(\epsilon,x_i)\]</span>
+It follows that <span class="math inline">\(C\)</span> is a closed and bounded subset of the complete metric space <span class="math inline">\(\mathcal{M}\)</span>, which implies <span class="math inline">\(C\)</span> is compact. For arbitrary <span class="math inline">\(x\in C\)</span> and <span class="math inline">\(\varepsilon &gt;0\)</span> arbitrary, let there be an open Eucledian ball <span class="math inline">\(B_d(\varepsilon,\mathcal{f}(x))\)</span> of <span class="math inline">\(\mathcal{f}(x)\)</span>. Then <span class="math inline">\(\mathcal{f}^{-1}(B_d(\varepsilon,\mathcal{f}(x))\)</span> is an neighborhood of <span class="math inline">\(x\)</span> in <span class="math inline">\(\mathcal{M}\)</span>, pick <span class="math inline">\(\delta &gt; 0\)</span> such that <span class="math inline">\(\delta &lt; \epsilon\)</span>.</p>
+<p>For arbitrary <span class="math inline">\(m&#39;\in \mathcal{f}^{-1}(B_d(\varepsilon,\mathcal{f}(x))\)</span>, the open ball <span class="math inline">\(B_\rho(\delta,m&#39;)\subset \mathcal{f}^{-1}(B_d(\varepsilon,\mathcal{f}(x)))\)</span> so pre-image of open Eucledian ball is open in <span class="math inline">\(\mathcal{M}\)</span>. Thus, <span class="math inline">\(f\)</span> is continuous, by Extreme Value Theorem, the <span class="math inline">\(\mathcal{f}\)</span> has a global minimum.</p>
+<center>
+<p><img src="dataset/sampling1.png" width="350" /> <img src="dataset/sampling2.png" width="350" /></p>
+Figure 2.2: The sample Frechet mean on a <span class="math inline">\(2-\)</span>sphere.
+</center>
+</div>
+<div id="asymtomtic-behavior" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Asymtomtic behavior</h2>
+<p><strong>Theorem</strong> <u>Almost surely convergence of Fréchet mean and variance</u> For probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{P})\)</span> and complete Rimennian metric space <span class="math inline">\((\mathcal{M},\rho)\)</span>, suppose there are finite sequence of <span class="math inline">\(n\)</span> independent and identically distributed random variable (iid r.v.) <span class="math inline">\(\mathcal{X}_i:\Omega\to\mathcal{M}\)</span> for <span class="math inline">\(i=1,2,\dots,n\)</span>. It follows that:
+<span class="math display">\[
+\begin{aligned}
+&amp;\lim\sup\hat\Theta^2\subseteq\Theta^2 \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ and }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ } \hat\sigma^2_n \to \sigma^2
+\end{aligned}
+\]</span>
+<u><i>Proof</i></u> Let there be complete Rimennian metric space <span class="math inline">\((\mathcal{M},\rho)\)</span> and probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{P})\)</span> and measure <span class="math inline">\(\mu\)</span>. For arbitrary <span class="math inline">\(n\)</span> i.i.d r.v. <span class="math inline">\(\{\mathcal{X}_i\}_{i=1,2,\dots, n}\)</span>. Define the sequence of function <span class="math inline">\(F\)</span> and <span class="math inline">\(F^\ast\)</span>:
+<span class="math display">\[
+\begin{aligned}
+&amp;F_n(z) = \frac{1}{n}\sum_{i=1}^n \rho^2(z,\mathcal{X_i})  - \int_\mathcal{M}\rho^2(z,x)d\mu(x)  \\
+&amp;F^\ast_n(z) = \frac{1}{n}\sum_{i=1}^n \rho^2(z,\mathcal{X_i})  - \int_\mathcal{M}\rho^2(\Theta,x)d\mu(x)  \\
+\end{aligned}
+\]</span>
+Since <span class="math inline">\(F_n(z)\)</span> is a random variable on the real domain, by Strong Law of Large number, for arbitrary <span class="math inline">\(z\in\mathcal{M}\)</span> it follows that:
+<span class="math display">\[\lim_{n\to\infty} F_n(z) =0\]</span>
+Since <span class="math inline">\((F_n)_{n\in\mathbb{N}}\)</span> uniformly converges, by compactness of <span class="math inline">\(\mathcal{M}\)</span>:
+<span class="math display">\[\lim_{n\to\infty}\sup_{z&#39;\in\mathcal{M}} F_n(z&#39;) =0 \implies\lim_{n\to\infty}F_n(\hat\Theta_n) =0\]</span>
+Since <span class="math inline">\(\Theta\)</span> is the greatest upper bound and <span class="math inline">\(\hat\Theta_n\)</span> (<span class="math inline">\(\forall n\in\mathbb{N}\)</span>) is the global minimum of the domain, it follows that <span class="math inline">\(\hat\Theta_n\leq \Theta\)</span> (<span class="math inline">\(\forall n\in\mathbb{N}\)</span>). Then:
+<span class="math display">\[
+\begin{aligned}
+F_n(\hat\Theta_n) &amp;= \frac{1}{n}\sum_{i=1}^n \rho^2(\hat\Theta_n,\mathcal{X_i})  - \int_\mathcal{M}\rho^2(\hat\Theta_n,x)d\mu(x)  \\
+&amp;\leq \frac{1}{n}\sum_{i=1}^n \rho^2(\hat\Theta_n,\mathcal{X_i})  - \int_\mathcal{M}\rho^2(\Theta,x)d\mu(x)  \\
+&amp;= F^\ast_n(\hat\Theta_n)\\
+F^\ast_n(\hat\Theta_n) &amp;= \frac{1}{n}\sum_{i=1}^n \rho^2(\hat\Theta_n,\mathcal{X_i})  - \int_\mathcal{M}\rho^2(\Theta,x)d\mu(x)  \\
+&amp;\leq \frac{1}{n}\sum_{i=1}^n \rho^2(\Theta,\mathcal{X_i})  - \int_\mathcal{M}\rho^2(\Theta,x)d\mu(x)  \\
+&amp;= F_n(\Theta)
+\end{aligned}
+\]</span>
+<span class="math display">\[\implies F_n(\hat\Theta_n)\leq F^\ast_n(\hat\Theta_n) \leq F_n(\Theta)\]</span>
+Define <span class="math inline">\(K_n = \max\{|F_n(\hat\Theta_n)|,|F_n(\Theta)|\}\)</span> then:
+<span class="math display">\[
+\begin{cases}
+\lim_{n\to\infty}K_n = 0\\
+|F^\ast_n(\hat\Theta_n)| \leq K_n
+\end{cases}
+\implies \lim_{n\to\infty}|F^\ast_n(\hat\Theta_n)| =0 \implies \hat \sigma^2\to\sigma^2
+\]</span>
+Thus, the Fréchet variance is almost surely convergence (a.s.), and it’s left to prove the Fréchet expectation is also a.s.. For arbitrary <span class="math inline">\(n\in\mathbb{N}\)</span>, define the subset <span class="math inline">\(\mathcal{C}_n\subset\mathcal{M}\)</span> as
+<span class="math display">\[\mathcal{C}_n = \text{Closure}\left(\bigcup_{m=n}^\infty \hat\Theta^2_m\right)\]</span>
+We will prove <span class="math inline">\(C_n = \hat\Theta^2_n\)</span> by inclusion both way. Let <span class="math inline">\(n\in\mathbb{N}\)</span> and <span class="math inline">\(c_j\in\mathcal{C}_n\)</span> be arbitrary. Since <span class="math inline">\(\mathcal{C}_n\)</span> is closed, by compactness of <span class="math inline">\(\mathcal{M}\)</span>, there exists a subsequence <span class="math inline">\((c_{j_k})\subset \mathcal{C}_{n_k}\)</span> such that <span class="math inline">\(c_{j_k} \to c_j\)</span>. Then <span class="math inline">\(c_j\in\lim_{n\to\infty}\sup_{j\geq n} \mathcal{C}_n \implies c_j\in \lim\sup\hat\Theta^2_n\)</span>, which implies <span class="math inline">\(C_n\subseteq\lim\sup\hat\Theta^2_n\)</span>. Now for the converse, let <span class="math inline">\(c_j\in\lim\sup\hat\Theta_n\)</span> be arbitrary. By definition, for every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists subsequence <span class="math inline">\((c_{j_k})\subset\mathcal{C}_{n_k}\)</span> satisfying <span class="math inline">\(c_{j_k}\to c_j\)</span>. Then <span class="math inline">\(c_j\in\text{Closure}(\bigcup_{m=n}^\infty\hat\Theta^2_m)\)</span>, so <span class="math inline">\(\lim\sup\hat\Theta^2_n\subseteq\mathcal{C}_n\)</span>. By inclusion both way, <span class="math inline">\(\lim\sup\hat\Theta^2_n=\text{Closure}\left(\bigcup_{m=n}^\infty \hat\Theta^2_m\right)\)</span></p>
+<p>Let <span class="math inline">\(\hat\theta\in\lim\sup\hat\Theta^2_n\)</span> be arbitrary then <span class="math inline">\(\hat\theta\in\text{Closure}\left(\bigcup_{m=n}^\infty \hat\Theta^2_m\right)\)</span>. By compactness of <span class="math inline">\(\mathcal{M}\)</span>, there exists a convergent subsequence <span class="math inline">\((\hat\theta_k)\)</span> such that <span class="math inline">\(\hat\theta_k\to\hat\theta\)</span>. Thus, we can make <span class="math inline">\(\rho^2(\hat\theta_k,\hat\theta)\)</span> as mall as we want. Pick <span class="math inline">\(N_k \in \mathbb{N}\)</span> such that <span class="math inline">\(N_k\geq \frac{1}{\varepsilon}\)</span> for <span class="math inline">\(\varepsilon&gt;0\)</span>, so whenever <span class="math inline">\(k\geq N_k\)</span> it must be that <span class="math inline">\(\rho^2(\hat\theta_k,\hat\theta) \leq \frac{1}{k}\)</span>. By Minkowski inequality in <span class="math inline">\(L^2\)</span> space, we have:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left(\frac{1}{N_k}\sum_{i=1}^{N_k}\rho^2(\mathcal{X}_i,\hat\theta)\right)^{1/2} &amp;\leq \left(\frac{1}{N_k}\sum_{i=1}^{N_k}\rho^2(\mathcal{X}_i,\hat\theta_k)\right)^{1/2} + \left(\frac{1}{N_k}\sum_{i=1}^{N_k}\rho^2(\hat\theta_k,\hat\theta)\right)^{1/2}\\
+&amp;\leq \left(\frac{1}{N_k}\sum_{i=1}^{N_k}\rho^2(\mathcal{X}_i,\hat\theta_k)\right)^{1/2} + \left(\frac{1}{N_k}N_k(\frac{1}{k})^2\right)^{1/2}\\
+&amp;\leq \left(\frac{1}{N_k}\sum_{i=1}^{N_k}\rho^2(\mathcal{X}_i,\hat\theta_k)\right)^{1/2} + \frac{1}{k}\\
+\implies \lim\inf_{k\to\infty}\left(\frac{1}{N_k}\sum_{i=1}^{N_k}\rho^2(\mathcal{X}_i,\hat\theta)\right)^{1/2} &amp;\leq \lim\inf_{k\to\infty}\left(\frac{1}{N_k}\sum_{i=1}^{N_k}\rho^2(\mathcal{X}_i,\hat\theta_k)\right)^{1/2}  + \lim\inf_{k\to\infty}\frac{1}{k} \\
+\implies \mathbb{E}\left[\rho^2(\mathcal{M},\hat\theta)\right]^{1/2} &amp;\leq   \lim\inf_{k\to\infty}\left(\frac{1}{N_k}\sum_{i=1}^{N_k}\rho^2(\mathcal{X}_i,\hat\theta_k)\right)^{1/2}   + 0\\
+&amp;\leq \lim\inf_{k\to\infty}\left(\frac{1}{N_k}\sum_{i=1}^{N_k}\rho^2(\mathcal{X}_i,z&#39;)\right)^{1/2} (\forall z&#39;\in\mathcal{M})\\
+&amp;\leq  \mathbb{E}\left[\rho^2(\mathcal{M},z&#39;)\right]^{1/2} \\
+\implies \mathbb{E}\left[\rho^2(\mathcal{M},\hat\theta)\right] &amp;\leq   \mathbb{E}\left[\rho^2(\mathcal{M},z&#39;)\right]\\
+\implies \hat\theta \in \Theta^2 &amp;\implies \lim\sup\hat\Theta_n\subseteq\hat\Theta
+\end{aligned}
+\]</span>
+Thus, the sample Fretchet mean and variance is Almost surely converges.</p>
+</div>
+<div id="normal-distribution" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Normal distribution</h2>
+<p>There is not a general Normal distribution defined on an abstract manifold, so the following definition of normal density function only applies to the Riemannian manifold.</p>
+<strong>Definition</strong> For a Riemannian manifold <span class="math inline">\((\mathcal{M},\rho)\)</span>, the probability density function for normal distribution is <span class="math inline">\(\mathcal{Pr}:(\mathcal{M},\mu,\tau)\to[0,1]\)</span> defined by:
+<span class="math display">\[
+\begin{aligned}
+\mathcal{Pr}(x\vert\mu,\tau) &amp;= \frac{1}{C(\mu,\tau)}e^{-\frac{\tau}{2}\rho(\mu,x)^2} \\
+\text{Where :}&amp;\\ C(\mu,\tau) &amp;= \int_\mathcal{M}e^{-\frac{\tau}{2}\rho(\mu,x)^2}dx \\
+&amp;\text{ is a normalized term.} 
+\end{aligned}
+\]</span>
+A random variable <span class="math inline">\(\mathcal{X}\)</span> of <span class="math inline">\((\mathcal{M},\rho)\)</span> follows a <u>Riemannian normal distribution</u> is denoted as <span class="math inline">\(\mathcal{X}\sim\text{N}_\mathcal{M}(\mu,\tau^{-1})\)</span>. The figures below shows the sampling on <span class="math inline">\(\text{N}_\mathcal{M}(0,1)\)</span>, respectively, at <span class="math inline">\(n=30,100,1000\)</span>. We can see that it shares some similar symmetrical dispersion property pn the domain as sampling normal distribution on <span class="math inline">\(\mathbb{R}\)</span>. Another interesting result is that the central limit theorem on Riemannian also holds!
+<center>
+<img src="dataset/sampling1.png" width="250" /> <img src="dataset/sampling3.png" width="250" /><img src="dataset/sampling4.png" width="250" />
+Figure 2.3: Sampling from Normal distribution on the <span class="math inline">\(2-\)</span>sphere.
+</center>
+<p><strong>Definition</strong> <u>Central limit theorem</u> Let <span class="math inline">\(\mathcal{Y}_1,\mathcal{Y}_2,\mathcal{Y}_3,\dots,\mathcal{Y}_n\)</span> be <span class="math inline">\(n\)</span> independent random variable from the same distribution (same parameters) then
+<span class="math display">\[\sqrt{n} (\mathcal{Y}_1+\mathcal{Y}_2+\dots+\mathcal{Y}_n)\longrightarrow_\rho\text{N}_\mathcal{M}(\vec{0},\tau^{-1})\]</span>
+The <a href="https://arxiv.org/pdf/1801.06581.pdf">proof</a> of this theorem deserves a project of its own! Look’s at how interesting the statistical theories on the Riemannian manifold intutively similar to the <span class="math inline">\(\mathbb{R}^n\)</span>!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geodesics-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-statisticsrien.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

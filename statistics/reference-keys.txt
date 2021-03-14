@@ -1,0 +1,15 @@
+intro
+motivation
+project-outline
+what-is-a-manifold
+statistics-on-riemannian-manifold
+riemannian-manifold
+instrinsic-moments
+asymtomtic-behavior
+normal-distribution
+geodesics-regression
+motivation-1
+geodesics-regression-1
+least-square-estimate
+application
+references
