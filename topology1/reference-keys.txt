@@ -4,7 +4,6 @@ morse-theory
 algebraic-topology
 discrete-morse-theory
 discrete-gradient-field
-morse-homology
 sublevel-set-filtration
 applications
 modeling-noisy-image-segmentation
