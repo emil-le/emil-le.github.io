@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Discrete Morse theory | Discrete Morse theory and application in topological data analysis.</title>
+  <meta name="description" content="Capstone Project." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Discrete Morse theory | Discrete Morse theory and application in topological data analysis." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Capstone Project." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Discrete Morse theory | Discrete Morse theory and application in topological data analysis." />
+  
+  <meta name="twitter:description" content="Capstone Project." />
+  
+
+<meta name="author" content="Emil Le" />
+
+
+<meta name="date" content="2021-03-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="applications.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/rglWebGL-binding-0.104.16/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-0.104.16/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-0.104.16/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-0.104.16/CanvasMatrix.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Topology</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#morse-theory"><i class="fa fa-check"></i><b>1.2</b> Morse Theory</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#algebraic-topology"><i class="fa fa-check"></i><b>1.3</b> Algebraic topology</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="discrete-morse-theory.html"><a href="discrete-morse-theory.html"><i class="fa fa-check"></i><b>2</b> Discrete Morse theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="discrete-morse-theory.html"><a href="discrete-morse-theory.html#discrete-gradient-field"><i class="fa fa-check"></i><b>2.1</b> Discrete gradient field</a></li>
+<li class="chapter" data-level="2.2" data-path="discrete-morse-theory.html"><a href="discrete-morse-theory.html#sublevel-set-filtration"><i class="fa fa-check"></i><b>2.2</b> Sublevel set filtration</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>3</b> Applications</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="applications.html"><a href="applications.html#modeling-noisy-image-segmentation"><i class="fa fa-check"></i><b>3.1</b> Modeling noisy image segmentation</a></li>
+<li class="chapter" data-level="3.2" data-path="applications.html"><a href="applications.html#gene-co-expression-network-analysis"><i class="fa fa-check"></i><b>3.2</b> Gene co-expression network analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>4</b> Conclusion</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="conclusion.html"><a href="conclusion.html#references"><i class="fa fa-check"></i><b>4.1</b> References</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Discrete Morse theory and application in topological data analysis.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="discrete-morse-theory" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Discrete Morse theory</h1>
+<div id="discrete-gradient-field" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Discrete gradient field</h2>
+<p><strong>Definition</strong> <u>Face and co-face</u> For a simplicial complex <span class="math inline">\(\mathcal{X}\)</span> consists of simplicies <span class="math inline">\(\Delta^n_\alpha,\Delta^{n+1}_\beta\in \mathcal{X}\)</span>, if <span class="math inline">\(\Delta^n_\alpha,\subset\Delta^{n+1}_\beta\)</span> then we say:</p>
+<ul>
+<li><p><span class="math inline">\(\Delta^n_\alpha\)</span> is a face of <span class="math inline">\(\Delta^{n+1}_\beta\)</span>, denoted as <span class="math inline">\(\Delta^n_\alpha\in\partial\Delta^{n+1}_\beta\)</span>.</p></li>
+<li><p><span class="math inline">\(\Delta^{n+1}_\beta\)</span> is a co-face of <span class="math inline">\(\Delta^n_\alpha\)</span>.</p></li>
+</ul>
+<p><img src="bookdown-demo_files/figure-html/tikz-ex3-1.png" width="192" style="display: block; margin: auto;" /></p>
+<p><span class="math display">\[\text{Figure 2.1: The 0-simplex [a] is a face of the 1-simplex [ab],  and the 1-simplex [ab] is a coface of the 0-simplex [a]. The 1-simplex [ab] is a face of the 2-simplex [abc],  and the 2-simplex [abc] is a coface of the 1-simplex [ab]. }\]</span></p>
+<p><strong>Definition</strong> <u>Discrete Morse function</u> For a simplicial complex <span class="math inline">\(\mathcal{X}\)</span>, a discrete Morse function <span class="math inline">\(f:\mathcal{X}\to\mathbb{R}\)</span> is one satisfying the two conidtions:</p>
+<ul>
+<li><p><span class="math inline">\(\text{Card}\left\{\Delta^n_\alpha \big\vert f(\Delta^n_\alpha)\leq f(\Delta^{n+1}_\beta), \Delta^n_\alpha\in\partial\Delta^{n+1}_\beta\right\} \leq 1\)</span> for all <span class="math inline">\(\Delta\in\mathcal{X}\)</span>.</p></li>
+<li><p><span class="math inline">\(\text{Card}\left\{\Delta^{n+2}_\gamma \big\vert f(\Delta^{n+2}_\gamma)\leq f(\Delta^{n+1}_\beta), \Delta^{n+1}_\beta\in\partial\Delta^{n+2}_\gamma\right\} \leq 1\)</span> for all <span class="math inline">\(\Delta\in\mathcal{X}\)</span>.</p></li>
+</ul>
+<p><u>Example</u> For a simplicial complex <span class="math inline">\(\mathcal{K}\)</span></p>
+<p><img src="bookdown-demo_files/figure-html/tikz-ex4-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><span class="math display">\[
+\begin{aligned}\text{Figure 2.2:} &amp;\text{ Left: The function defined on the simplicial complex is a Morse function.}\\
+&amp;\text{ Right: The function defined on the simplicial complex is NOT a Morse function}\\
+&amp;\text{ because of several reasons. For example, the values of simplicies are not}\\
+&amp;\text{ strictly increasing ([de] has value 11 but [abc] has value 9). There are}\\
+&amp;\text{ 3 simplicies ([a],[b], and [c]) of value 0}.\\
+\end{aligned}
+\]</span></p>
+<p><b>Definition:</b> <u>Critical simplex</u> For a simplicial complex <span class="math inline">\(\mathcal{X}\)</span> with a discrete Morse function <span class="math inline">\(f:\mathcal{X}\to\mathbb{R}\)</span>, a simplex <span class="math inline">\(\Delta^{n+1}_\beta\in\mathcal{X}\)</span> is a critical simplex if:</p>
+<ul>
+<li><p><span class="math inline">\(\text{Card}\left\{\Delta^n_\alpha \big\vert f(\Delta^n_\alpha)\leq f(\Delta^{n+1}_\beta), \Delta^n_\alpha\in\partial\Delta^{n+1}_\beta\right\} = 0\)</span> for all <span class="math inline">\(\Delta\in\mathcal{X}\)</span>.</p></li>
+<li><p><span class="math inline">\(\text{Card}\left\{\Delta^{n+2}_\gamma \big\vert f(\Delta^{n+2}_\gamma)\leq f(\Delta^{n+1}_\beta), \Delta^{n+1}_\beta\in\partial\Delta^{n+2}_\gamma\right\} =0\)</span> for all <span class="math inline">\(\Delta\in\mathcal{X}\)</span>.</p></li>
+</ul>
+<p><img src="bookdown-demo_files/figure-html/tikz-ex5-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><span class="math display">\[
+\begin{aligned}\text{Figure 2.3:} &amp;\text{ Left: The critical simplicies are [a],[b],[ab],[ad],[dc].}\\
+&amp;\text{ Right: The critical simplicies are [a],[b],[ab],[ad],[dc],[bd],[dbc]}
+\end{aligned}
+\]</span><br />
+<strong>Definition</strong> <u>Discrete vector field</u> A discrete vector field (or a Morse pairing) <span class="math inline">\(\mathcal{V}\)</span> for a simplicial complex <span class="math inline">\(\mathcal{K}\)</span> is a collection of pairs of simplices <span class="math inline">\((\Delta^n_\alpha,\Delta^{n+1}_\beta)\)</span> (<span class="math inline">\(\forall\Delta\in\mathcal{K}\)</span>) such that each simplex appear in at most a pair. In graph representation <span class="math inline">\(G=(V,E)\)</span> of <span class="math inline">\(\mathcal{V}\)</span>, the vertex set <span class="math inline">\(V\)</span> denote the simplicies of <span class="math inline">\(\mathcal{K}\)</span> and the edge set is defined as <span class="math inline">\(E = \{e\in \mathcal{V}\}\)</span>.</p>
+<p><strong>Definition</strong> <u>Hasse diagram</u> Let <span class="math inline">\(G = (V,E)\)</span> be a directed graph with <span class="math inline">\(V\)</span> are the set consisting of simplicies in a simplicial complex <span class="math inline">\(\mathcal{K}\)</span> with discrete vector field <span class="math inline">\(\mathcal{V}\)</span>. An directed edge <span class="math inline">\((\tau,\sigma)\in E\)</span> in the edge set <span class="math inline">\(E\)</span> if <span class="math inline">\(\sigma\in\partial\tau\)</span>. A (modified) Hasse diagram <span class="math inline">\(H=(V,E&#39;)\)</span> is a directed graph with the same vertex set <span class="math inline">\(V\)</span> of <span class="math inline">\(G\)</span>, and an edge <span class="math inline">\((\tau,\sigma)\in E&#39;\)</span> if <span class="math inline">\(e\in E\)</span> with the exception that the direction of <span class="math inline">\((\tau,\sigma)\)</span> would be changed to an opposite direction <span class="math inline">\((\sigma,\tau)\)</span> if there is a vector from <span class="math inline">\(\tau\)</span> to <span class="math inline">\(\sigma\)</span> in <span class="math inline">\(\mathcal{V}\)</span>.</p>
+<p><u>Example</u>
+<img src="bookdown-demo_files/figure-html/tikz-ex6-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><strong>Definition</strong> <u>Gradient vector field</u> A discrete Morse function defines a discrete
+vector field (gradient Morse pairing) by pairing (<span class="math inline">\((\Delta^n_\alpha,\Delta^{n+1}_\beta)\)</span>) whenever <span class="math inline">\(f(\Delta^n_\alpha)&lt;f(\Delta^{n+1}_\beta)\)</span>. The critical cells are precisely those that do not appear in any pair. Discrete vector fields that arise from Morse functions are called gradient vector fields.</p>
+<p><strong>Definition</strong> <u>V-Path</u> A V-path of gradient vector field <span class="math inline">\(\mathcal{V}\)</span> is a sequence of simplicies <span class="math inline">\(\Delta\in\mathcal{V}\)</span> such that:
+<span class="math display">\[P=\{\sigma^{n}_{0},\tau^{n+1}_{0},\sigma^{n}_{1},\tau^{n+1}_{1},\sigma^{n}_{2},\tau^{n}_{2},\dots,\sigma^{n}_{r-1},\tau^{n+1}_{r-1},\sigma^{n}_{r}\}\]</span>
+where <span class="math inline">\(\sigma^n_i\in\partial\tau^{n+1}_i\)</span> for <span class="math inline">\(i=0,1,\dots,r-1\)</span>. A V-path is trivial if <span class="math inline">\(r = 0\)</span>. and is closed if <span class="math inline">\(r&gt;0\)</span> and <span class="math inline">\(\sigma^n_r=\sigma^n_0\)</span>.</p>
+<p><img src="bookdown-demo_files/figure-html/tikz-ex7-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><strong>Theorem</strong> A discrete vector field is the gradient vector field of a discrete Morse function if and only if there are no non-trivial closed V-paths and every V-path is unique.</p>
+<p><u>Proof</u></p>
+<p>(<span class="math inline">\(\implies\)</span>) Assume a discrete vector field <span class="math inline">\(\mathcal{V}\)</span> is a gradient vector field inducded by discrete Morse function <span class="math inline">\(f\)</span> on a simplicial complex <span class="math inline">\(\mathcal{K}\)</span>. By way of contradiction, assume there is a closed V-path <span class="math inline">\(P=\{\sigma^{n}_{0},\tau^{n+1}_{0},\sigma^{n}_{1},\tau^{n+1}_{1},\sigma^{n}_{2},\tau^{n}_{2},\dots,\sigma^{n}_{r-1},\tau^{n+1}_{r-1},\sigma^{n}_{r},\sigma^{n}_{0}\}\)</span> in <span class="math inline">\(\mathcal{V}\)</span>. Since every simplex in <span class="math inline">\(\mathcal{K}\)</span> appears in at most one pair in <span class="math inline">\(\mathcal{V}\)</span> and by definition of the discrete Morse function, we have:
+<span class="math display">\[f(\sigma^{n}_{0})&lt; f(\tau^{n+1}_{r-1}) &lt;\dots &lt; f(\sigma^{n}_{r})&lt;f(\sigma^{n}_{0})\]</span>
+This is a contradiction, so there would be no closed V-path in <span class="math inline">\(\mathcal{V}\)</span>. Similarly, if there were any trivial path in <span class="math inline">\(\mathcal{V}\)</span>, then <span class="math inline">\(f(\sigma^{n}_{0})&lt;f(\sigma^{n}_{0})\)</span> is also a contradiction.</p>
+<p>( <span class="math inline">\(\Longleftarrow\)</span> ) Assume there exists a discrete vector field <span class="math inline">\(\mathcal{V}\)</span> contains no trivial or closed V-path, then there exists a discrete Morse function on <span class="math inline">\(\mathcal{V}\)</span>.</p>
+<p><u>Lemma 1</u> If discrete gradient <span class="math inline">\(\mathcal{V}\)</span> has a closed <span class="math inline">\(V-\)</span>path if the corresponding Hasse diagram <span class="math inline">\(H\)</span> is acyclic.</p>
+<p>By using contraposition, we show that if the corresponding Hasse diagram <span class="math inline">\(H\)</span> of discrete gradient <span class="math inline">\(\mathcal{V}\)</span> is cyclic then there exists a closed <span class="math inline">\(V-\)</span>path. Supposed that <span class="math inline">\(H\)</span> has a cycle <span class="math inline">\(C\)</span>, then <span class="math inline">\(C\)</span> can only contains simplicies of <span class="math inline">\(k\)</span> and <span class="math inline">\((k+1)-\)</span>dimension for some <span class="math inline">\(k \leq \dim\mathcal{K}-1\)</span>. By way of contradiction, assume the cycle <span class="math inline">\(C\)</span> contains some simplicies of dimension <span class="math inline">\(d\)</span> such that <span class="math inline">\(d\neq k,k+1\)</span>. Without loss of generality, assume <span class="math inline">\(d&lt;k\)</span>. Since at every sub-path in <span class="math inline">\(C\)</span>, we must move up or down in 1 dimension, if there exists <span class="math inline">\(\Delta^d\)</span> in the cycle, then we would have moved up <span class="math inline">\(k-d+1\)</span> times from <span class="math inline">\(\Delta_i^d\)</span> to <span class="math inline">\(\Delta_j^k\)</span>. This implies there are <span class="math inline">\(k-d\)</span> simplicies appearing in <span class="math inline">\(\mathcal{V}\)</span>: (<span class="math inline">\(\Delta_i^d,\alpha^{d+1}\)</span>), (<span class="math inline">\(\alpha^{d+1},\alpha^{d+2}\)</span>), <span class="math inline">\(\dots\)</span>, (<span class="math inline">\(\alpha^{k-1},\Delta_j^{k}\)</span>). This is a contradiction since every simplicies must appear in at most 1 pair, so cycle <span class="math inline">\(C\)</span> must only contain contains simplicies of <span class="math inline">\(k\)</span> and <span class="math inline">\((k+1)-\)</span>dimension for some <span class="math inline">\(k\)</span>. Again, since the cycle <span class="math inline">\(C\)</span> of some simplicies of <span class="math inline">\(k\)</span> and <span class="math inline">\((k+1)-\)</span>dimension, assume of length <span class="math inline">\(2n+1\)</span>, each upward arrows represents <span class="math inline">\((\Delta^k_i,\Delta^{k+1}_i)\in\mathcal{V}\)</span> for <span class="math inline">\(i=0,1,\dots,n-1\)</span> satisfying <span class="math inline">\(\Delta^k_i\in\partial\Delta^{k+1}_i\)</span> and <span class="math inline">\(a_i\neq a_{i+1}\)</span>. Since <span class="math inline">\(C\)</span> is cyclic, then there is an arrow from <span class="math inline">\(\Delta^k_n\)</span> to <span class="math inline">\(\Delta^k_0\)</span> (<span class="math inline">\((\Delta^k_0,\Delta^k_n)\in\mathcal{V}\)</span>), which gives us a closed path <span class="math inline">\((\Delta^k_0,\Delta^{k+1}_0,\Delta^k_1,\Delta^{k+1}_1,\dots,\Delta^k_{n-1},\Delta^{k+1}_{n-1},\Delta^k_n=\Delta^k_0)\)</span> in <span class="math inline">\(\mathcal{V}\)</span>. QED.</p>
+<p><u>Lemma 2</u> Let <span class="math inline">\(H = (V,E)\)</span> be a finite directed graph. Then <span class="math inline">\(H\)</span> is acylic iff there exists <span class="math inline">\(f: V\to\mathbb{R}\)</span> satisfying <span class="math inline">\(f(v_i)&gt;f(v_j)\)</span> (<span class="math inline">\(i\neq j\)</span>) for arbitrary <span class="math inline">\(v_i,v_j\in V\)</span> and <span class="math inline">\((v_i,v_j)\in H\)</span>.</p>
+<p>(<span class="math inline">\(\implies\)</span>) Assume there exists such <span class="math inline">\(f\)</span>, by way of contradiction, assume there exists a cycle in <span class="math inline">\(H\)</span>: <span class="math inline">\((v_0,v_1,\dots v_n,v_0)\)</span>. Then we have <span class="math inline">\(f(v_0)&gt;f(v_1)&gt;\dots&gt;f(v_n)&gt;f(v_0)\)</span>, which is a contradictoin. Thus, <span class="math inline">\(H\)</span> is acyclic.</p>
+<p>(<span class="math inline">\(\Longleftarrow\)</span>) Assume <span class="math inline">\(H\)</span> is acyclic, let <span class="math inline">\(V&#39;\subseteq V\)</span> be defined as <span class="math inline">\(V&#39; = \{v\in V \vert \exists v&#39;\in V \text{ s.t. } (v,v&#39;)\in E\}\)</span> with <span class="math inline">\(I\)</span> be the fixed index set of <span class="math inline">\(v\in V&#39;\)</span>. Let <span class="math inline">\(d = \dim V&#39;\)</span>, define function <span class="math inline">\(f: V\to \mathbb{R}\)</span> that maps <span class="math inline">\(v_i \mapsto d - i\)</span> for <span class="math inline">\(i=0,1,2,\dots,d-1\)</span>. Since the index set is fixed, if <span class="math inline">\(i&gt;j\)</span> and <span class="math inline">\((v_i,v_j)\in E\)</span> then <span class="math inline">\(f(v_i)&gt;f(v_j)\)</span> so <span class="math inline">\(f\)</span> is the satisfied function.</p>
+<p>By Lemma 1, since <span class="math inline">\(\mathcal{V}\)</span> contains no closed path, then the corresponding Hasse diagram <span class="math inline">\(H= (V,E)\)</span> is acyclic. By Lemma 2, there exists <span class="math inline">\(f: V\to\mathbb{R}\)</span> satisfying <span class="math inline">\(f(v_i)&gt;f(v_j)\)</span> (<span class="math inline">\(i\neq j\)</span>) for arbitrary <span class="math inline">\(v_i,v_j\in V\)</span> and <span class="math inline">\((v_i,v_j)\in H\)</span>. Every vertex of <span class="math inline">\(H\)</span> is an <span class="math inline">\(k-\)</span>simplex of <span class="math inline">\(\mathcal{K}\)</span>. If we defined the fixed index set of <span class="math inline">\(H\)</span> based on the dimension of the simplex, then <span class="math inline">\(f\)</span> maps a higher-dimensional simplices to a higher value. Furthermore, since <span class="math inline">\(H\)</span> is acyclic, then every simplex appears in at most 1 pair of simplicies in <span class="math inline">\(\mathcal{V}\)</span>. Thus, <span class="math inline">\(f\)</span> is the satisfied discrete Morse function on <span class="math inline">\(\mathcal{V}\)</span> so <span class="math inline">\(\mathcal{V}\)</span> is a gradient vector field.</p>
+<center>
+<img src="dataset/gradgieldmobius.png" width="750" />
+</center>
+<p><span class="math display">\[
+\begin{aligned}\text{Figure 2.3:} &amp;\text{ Top: Discrete Morse function on the triangulation of the Mobius strip.}\\
+&amp;\text{ Bottom: Gradient vector field n the triangulation of the Mobius strip.}
+\end{aligned}
+\]</span><br />
+<strong>Theorem</strong> <u>Morse cancellation / simplification</u>. Let f be a discrete Morse function on <span class="math inline">\(\mathcal{K}\)</span> such that <span class="math inline">\(\Delta^n_0,\Delta^{n+1}_0\)</span> are critical simplices. Suppose there exists a non-trivial V-path of gradient vector field <span class="math inline">\(\mathcal{V}\)</span> induced by <span class="math inline">\(f\)</span> <span class="math display">\[P=\{\sigma = \sigma^{n}_{0},\tau^{n+1}_{0},\sigma^{n}_{1},\tau^{n+1}_{1},\sigma^{n}_{2},\tau^{n}_{2},\dots,\sigma^{n}_{r-1},\tau^{n+1}_{r-1},\sigma^{n}_{r},\tau^n_r=\tau\}\]</span>
+satisfying <span class="math inline">\(\sigma^n_i\in\partial\tau^{n+1}_i\)</span> with pairing <span class="math inline">\(\{\tau^{n+1}_{i},\sigma^n_{i+1}\}\)</span> for <span class="math inline">\(i=0,1,\dots,r\)</span>. Then there exists another discrete Morse function <span class="math inline">\(f&#39;\)</span> on <span class="math inline">\(\mathcal{K}\)</span> such that it has the same critical simplicies as <span class="math inline">\(f\)</span> but <span class="math inline">\(\sigma,\tau\)</span> are no longer critical.</p>
+<p><u>Proof</u> Define <span class="math inline">\(\mathcal{V}&#39;\)</span> as a collection of pairs of all simplices <span class="math inline">\((\Delta^n_\alpha,\Delta^{n+1}_\beta)\)</span> (<span class="math inline">\(\forall\Delta\in\mathcal{K}\)</span>) satisfying:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mathcal{V}&#39; - P = \mathcal{V} - P\)</span></p></li>
+<li><p><span class="math inline">\((\sigma_i,\tau_i)\in \mathcal{V}&#39;\)</span> for <span class="math inline">\(i=0,1,2,\dots,r\)</span></p></li>
+</ol>
+<p>Essentially, we keep the initial pairing of simplicies in <span class="math inline">\(\mathcal{V}\)</span> that does not belong to the path <span class="math inline">\(P\)</span>, and assign those to <span class="math inline">\(\mathcal{V}&#39;\)</span>. And for simplicies in <span class="math inline">\(P\)</span> with the original pairing <span class="math inline">\(\{\tau^{n+1}_{i},\sigma^n_{i+1}\}\)</span>, we change to <span class="math inline">\((\sigma_i,\tau_i)\)</span> to put those in <span class="math inline">\(\mathcal{V}&#39;\)</span>. By definition, <span class="math inline">\(\mathcal{V}&#39;\)</span> is a discrete vector field because there are no simplicies appearing in more than a pair by the way we construct it. To show that <span class="math inline">\(\mathcal{V}&#39;\)</span> is a gradient vector field (by previous theorem , essentially pointing out there exists a discrete Morse function <span class="math inline">\(f&#39;\)</span> satisfying the property), it’s sufficient to show that the exists no non-trivial closed V-paths and every V-path is unique.</p>
+<p>From (1), since <span class="math inline">\(\mathcal{V}&#39;\)</span> differs from <span class="math inline">\(\mathcal{V}\)</span> by <span class="math inline">\(P\)</span> and there are no non-trivial or closed paths in <span class="math inline">\(\mathcal{V}\)</span> by definition, so there would not be any non-trivial paths in <span class="math inline">\(\mathcal{V}&#39;\)</span>. The V-path <span class="math inline">\(P\)</span> is also non-trivial by definition, so if there were any trivial or closed paths in <span class="math inline">\(\mathcal{V}&#39;\)</span>, it would have been in some sub-path of <span class="math inline">\(P\)</span>. By way of contradiction, let’s suppose a closed sub-path <span class="math inline">\(P_0\)</span> of <span class="math inline">\(P\)</span> defined by <span class="math inline">\(\sigma^n_k,\delta_i,\dots,\delta_j,\sigma^n_k\)</span> for some <span class="math inline">\(\delta_i,\dots,\delta_j\in\mathcal{K}\)</span>. Then <span class="math inline">\(P&#39;= \{\sigma = \sigma^{n}_{0},\dots,\sigma^n_k,\delta_i,\dots,\delta_j,\sigma^n_k,\dots\sigma^{n}_{r-1},\tau^{n+1}_{r-1},\sigma^{n}_{r},\tau^n_r=\tau\}\)</span> is another <span class="math inline">\(V-\)</span>path from <span class="math inline">\(\sigma\)</span> to <span class="math inline">\(\tau\)</span>. This is a contradiction since any <span class="math inline">\(V-\)</span>path from <span class="math inline">\(\sigma\)</span> to <span class="math inline">\(\tau\)</span> must be unique. Thus, <span class="math inline">\(\mathcal{V}&#39;\)</span> must not contain any closed V-path.</p>
+<p>We can show that every V-path in <span class="math inline">\(\mathcal{V}&#39;\)</span> is unique by a similar method. Again, since <span class="math inline">\(\mathcal{V}&#39;\)</span> differs from <span class="math inline">\(\mathcal{V}\)</span> by <span class="math inline">\(P\)</span> so any V-path in <span class="math inline">\(\mathcal{V}&#39;- P\)</span> is unique. Thus, it is sufficient to show that <span class="math inline">\(P&#39;=\{\tau^{n+1}_{0},\sigma^{n}_{1},\tau^{n+1}_{1},\sigma^{n}_{2},\tau^{n}_{2},\dots,\sigma^{n}_{r-1},\tau^{n+1}_{r-1},\sigma^{n}_{r},\tau^n_r=\tau,\sigma = \sigma^{n}_{0}\}\)</span> is unique. By way of contradiction, assume there exists another <span class="math inline">\(V-\)</span>path from <span class="math inline">\(\tau^{n+1}_{0}\)</span> to <span class="math inline">\(\sigma\)</span>: <span class="math inline">\(P_0=\{\sigma = \sigma^{n}_{0},\dots,\sigma^n_k,\delta_i,\dots,\delta_j,\sigma^n_k,\dots\sigma^{n}_{r-1},\tau^{n+1}_{r-1},\sigma^{n}_{r},\tau^n_r=\tau\}\)</span>. Then <span class="math inline">\(P&#39;\cup P_0\)</span> is a closed V-path, which contradicts the fact that <span class="math inline">\(\mathcal{V}&#39;\)</span> must not contain any closed V-path.</p>
+<p>Therefore, <span class="math inline">\(\mathcal{V}&#39;\)</span> is a gradient vector field of some discrete Morse function <span class="math inline">\(f&#39;\)</span> satisfying that it has the same number of critical simplicies but <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\sigma\)</span> are no longer critical.</p>
+<center>
+<img src="dataset/simplificationcrit2.png" width="750" />
+</center>
+<p><span class="math display">\[
+\begin{aligned}\text{Figure 2.4:} &amp;\text{ An example of Morse simplification. Notice how the direction of }\\
+&amp; \text{Morse pairing changed after }\Delta^0_2 \text{ and } \Delta^1_2  \text{ are no longer critical.}
+\end{aligned}
+\]</span><br />
+## Morse homology
+The connection between discrete Morse theory and simple homotopy arises from the pairs in the gradient vector field. The number of critical points modulo 2 of a Morse function depends only on the manifold and not on the function.</p>
+<p><strong>Definition</strong> <u>Chain Complex and Boundary Operator</u> Let <span class="math inline">\(\mathcal{K}\)</span> be a simplicial complex, and <span class="math inline">\(C_n(K)\)</span> denotes the <span class="math inline">\(\mathbb{Z}_2\)</span>-vector space with basis are the set of <span class="math inline">\(k-\)</span>simplices contained in <span class="math inline">\(\mathcal{K}\)</span>. The boundary operator is the linear transformation:
+<span class="math display">\[
+\begin{aligned}
+\partial_n: C_n(K) &amp;\longrightarrow C_{n+1}(K)\\
+[v_0v_1\dots v_n] &amp;\longmapsto [v_0\dots v_{j-1}v_{j+1}v_n]
+\end{aligned}
+\]</span>
+And the chain complex is the sequence of linear transformation:
+<span class="math display">\[C_{\ast}: \dots \overset{\partial_{n+1}}{\longrightarrow}C_{n}(K)\overset{\partial_{n}}{\longrightarrow}C_{n-1}(K)\overset{\partial_{n-1}}{\longrightarrow}\dots\overset{\partial_{4}}{\longrightarrow}C_{3}(K)\overset{\partial_{3}}{\longrightarrow}C_{2}(K)\overset{\partial_{2}}{\longrightarrow}C_{1}(K)\overset{\partial_{1}}{\longrightarrow}C_{0}(K)\]</span>
+where <span class="math inline">\(\partial_{k-1}\circ\partial_k = 0\)</span> for all <span class="math inline">\(i\geq 2\)</span>
+<span class="math display">\[
+\begin{aligned}
+\text{Define: }Z_i &amp;=  \bigoplus_{\alpha\in\mathbb{Z}_2}(Z_i)_\alpha = \text{Ker}(\partial_i) \text{ denotes the number of i-dimensional cycle}\\
+B_i &amp;=  \bigoplus_{\alpha\in\mathbb{Z}_2}(Z_i)_\alpha = \text{Im}(\partial_{i+1}) \text{ denotes the boundary of } C_i\\
+\text{Then: } H_i &amp;= \frac{Z_i}{B_i} \text{ denotes the i-th homology group} 
+\end{aligned}
+\]</span>
+<strong>Definition</strong> For a simplicial complex <span class="math inline">\(\mathcal{K}\)</span> with discrete Morse function <span class="math inline">\(f:\mathcal{K}\to\mathbb{R}\)</span>. For arbitrary simplicies <span class="math inline">\(\Delta^{n+1}_\beta,\Delta^{n}_\alpha\in\mathcal{K}\)</span>, define <span class="math inline">\(\Gamma(\Delta_\beta,\Delta\alpha)\)</span> as the number of <span class="math inline">\(V-\)</span>path from maximals faces of <span class="math inline">\(\Delta_\beta\)</span> to <span class="math inline">\(\Delta_\alpha\)</span>.</p>
+<p><strong>Definition</strong> Let <span class="math inline">\(C_p(\mathcal{K},\mathbb{Z}_2)\)</span> denote the <span class="math inline">\(\mathbb{Z}_2\)</span>-coefficient chain of simplicial complex <span class="math inline">\(\mathcal{K}\)</span>. Let <span class="math inline">\(M_p\subseteq C_p(\mathcal{K},\mathbb{Z}_2)\)</span> be the sub-complexes consisting of critical <span class="math inline">\(p-\)</span>simplex <span class="math inline">\(\Delta^p\)</span>, define <span class="math inline">\(\overset{\sim}{\partial_p}: \mathcal{M}_p\to\mathcal{M}_{p-1}\)</span>:
+<span class="math display">\[\partial_p(\Delta_{\beta}) = \sum_{\Delta_\alpha\in\mathcal{M}_{p-1}}c(\Delta_\beta,\Delta_\alpha)\Delta_\alpha\]</span>
+<span class="math display">\[
+c(\Delta_\beta,\Delta_\alpha)=
+\begin{cases}
+1, \text{ if Card}(\Gamma(\Delta_\beta,\Delta\alpha)) \text{ is odd}\\
+0, \text{ otherwise}
+\end{cases}
+\]</span></p>
+<p><strong>Definition</strong> The Morse chain complex <span class="math inline">\(\mathcal{M}_\ast\)</span> determines the homology of <span class="math inline">\(\mathcal{K}\)</span>
+<span class="math display">\[\mathcal{M}_{\ast}: \dots \overset{\partial_{n+1}}{\longrightarrow}\mathcal{M}_{n}(K)\overset{\partial_{n}}{\longrightarrow}\mathcal{M}_{n-1}(K)\overset{\partial_{n-1}}{\longrightarrow}\dots\overset{\partial_{3}}{\longrightarrow}\mathcal{M}_{2}(K)\overset{\partial_{2}}{\longrightarrow}\mathcal{M}_{1}(K)\overset{\partial_{1}}{\longrightarrow}\mathcal{M}_{0}(K)\]</span>
+That is if we let <span class="math inline">\(H(\mathcal{M}_p,\partial_p) = \frac{\text{Ker}(\partial_p)}{\text{Im} (\partial_{p+1})}\)</span>, then <span class="math inline">\(H_p(\mathcal{M}_p,\partial_p)\cong H_p(\mathcal{K},\mathbb{Z}_2)\)</span>.</p>
+<p><u>Verifying that</u> <span class="math inline">\(\partial_{n-1} \circ \partial_n: C_{n}(\mathcal{K})\to C_{n-2}(\mathcal{K})\)</span>, <span class="math inline">\(\partial_{n-1} \circ \partial_n(\Delta_\beta)\mapsto 0\)</span>.
+<span class="math display">\[
+\begin{aligned}
+\partial_{n-1} \circ \partial_n(\Delta_\beta)  &amp;= \sum_{\Delta_\alpha\in\mathcal{M}_{p-1}}\partial_{n} \big(c(\Delta_\beta,\Delta_\alpha)\Delta_\alpha\big)\\ 
+&amp;= \sum_{\Delta_\alpha\in\mathcal{M}_{p-1}}\sum_{\Delta_\gamma\in\mathcal{M}_{p-2}} \big(c(\Delta_\beta,\Delta_\alpha)c(\Delta_\alpha,\Delta_\gamma)\Delta_\gamma\big)\\ 
+&amp;= \sum_{\Delta_\alpha\in\mathcal{M}_{p-1}}\text{Card}\Big[\bigcup_{\Delta_\gamma\in\mathcal{M}_{p-2}} \big(\Gamma(\Delta_\beta,\Delta_\alpha)\times\Gamma(\Delta_\alpha,\Delta_\gamma)\big)\Big]\Delta_\gamma\\ 
+&amp;= \sum_{\Delta_\alpha\in\mathcal{M}_{p-1}}0\Delta_\gamma = 0 \text{ (Since direction are inverted)}\\ 
+\end{aligned}
+\]</span>
+<strong>Definition</strong> The Betti number <span class="math inline">\(\beta_k\)</span> of an simplicial complex <span class="math inline">\(\mathcal{K}\)</span> reflects the <span class="math inline">\(k-\)</span>dimensional holes (<span class="math inline">\(k-\)</span>dimensional cycle that is not a boundary of a <span class="math inline">\((k+1)-\)</span>dimensional object) of <span class="math inline">\(K\)</span>. The Euler characteristic relation with Betti number is given by:</p>
+<p><span class="math display">\[\chi(\mathcal{K})= \sum_{i=1}^{\dim\mathcal{K}}(-1)^i \beta_i\]</span></p>
+<p>For example, in a simplicial complex <span class="math inline">\(K\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(\beta_0\)</span> denotes the number of connected components in <span class="math inline">\(K\)</span></p></li>
+<li><p><span class="math inline">\(\beta_1\)</span> denotes the number of loop in <span class="math inline">\(K\)</span></p></li>
+<li><p><span class="math inline">\(\beta_2\)</span> denotes the number of entrapped volumns in <span class="math inline">\(k\)</span></p></li>
+</ul>
+<p><strong>Theorem</strong> <u>Discrete Poincaré–Hopf theorem</u> Let there be an simplicial complex <span class="math inline">\(\mathcal{K}\)</span> and a discrete Morse function <span class="math inline">\(f: \mathcal{K} \to \mathbb{R}\)</span>. Let <span class="math inline">\(m_i\)</span> denotes the number of <span class="math inline">\(i-\)</span>dimensional critical simplices <span class="math inline">\(\Delta^i\in\mathcal{K}\)</span> and <span class="math inline">\(\beta_i\)</span> denotes the number of <span class="math inline">\(i-\)</span>dimensional cycles. Then:
+<span class="math display">\[\chi(\mathcal{K})=\sum_{i=1}^{\dim\mathcal{K}}(-1)^i m_i = \sum_{i=1}^{\dim\mathcal{K}}(-1)^i \beta_i\]</span></p>
+<p><u>Proof</u> By definition, we have <span class="math inline">\(H_p(\mathcal{K}) = \frac{\text{Ker}(\partial_p)}{\text{Im} (\partial_{p+1})}\)</span> so that <span class="math inline">\(\dim H_p(\mathcal{K}) = \dim \text{Ker}(\partial_p) - \dim\text{Im} (\partial_{p+1})\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\chi(\mathcal{K}) &amp;= \sum_{i=1}^{\dim\mathcal{K}}(-1)^i \beta_i =
+\sum_{i=0}^{\dim\mathcal{K}}(-1)^i \dim H_p(\mathcal{K})\\
+&amp;=  \sum_{i=1}^{\dim\mathcal{K}}(-1)^i (\dim \text{Ker}(\partial_p) - \dim\text{Im} (\partial_{p+1})) \\
+&amp;=  \sum_{i=0}^{\dim\mathcal{K}}(-1)^i \dim \text{Ker}(\partial_p) + \sum_{i=0}^{\dim\mathcal{K}}(-1)^{i+1} \dim\text{Im} (\partial_{p+1})\\
+&amp;=  \sum_{i=0}^{\dim\mathcal{K}}(-1)^i \dim \text{Ker}(\partial_p) + \sum_{i=0}^{\dim\mathcal{K}-1}(-1)^{i+1} \dim\text{Im} (\partial_{p+1})  \\
+&amp;\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }+(-1)^{\dim\mathcal{K}}\dim\text{Im}(\partial_{\dim\mathcal{K}}) + (-1)^0\dim\text{Im}(\partial_0) \\ 
+&amp;=  \sum_{i=0}^{\dim\mathcal{K}}(-1)^i \dim \text{Ker}(\partial_p) + \sum_{i=0}^{\dim\mathcal{K}}(-1)^{i} \dim\text{Im} (\partial_{p})  \\ 
+&amp;=  \sum_{i=0}^{\dim\mathcal{K}}(-1)^i (\dim \text{Ker}(\partial_p) + \dim\text{Im} (\partial_{p}))  \\ 
+&amp;=  \sum_{i=0}^{\dim\mathcal{K}}(-1)^i (C_i(\mathcal{K}))  = \sum_{i=1}^{\dim\mathcal{K}}(-1)^i m_i 
+\end{aligned}
+\]</span></p>
+</div>
+<div id="sublevel-set-filtration" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Sublevel set filtration</h2>
+<p><strong>Definition</strong> <u>Collapse (simplicial complex)</u> A collapse of an arbitrary simplicial complex <span class="math inline">\(\mathcal{K}\)</span> to <span class="math inline">\(\mathcal{K}&#39;\)</span> (denoted as <span class="math inline">\(\mathcal{K}\searrow\mathcal{K}&#39;\)</span>) is the removal of all simplicies <span class="math inline">\(\Delta_\gamma\)</span> such that <span class="math inline">\(\Delta_1\subseteq\Delta_\gamma\subseteq\Delta_2\)</span> where <span class="math inline">\(\Delta_1\)</span> is a free-face. The main purpose is that <span class="math inline">\(\mathcal{K}\)</span> is homotopy equivalent to <span class="math inline">\(\mathcal{K}&#39;\)</span>.</p>
+<p><img src="bookdown-demo_files/figure-html/tikz-ex1-1.png" width="672" /></p>
+<p><strong>Definition</strong> <u>Level subcomplexes</u> Let <span class="math inline">\(c\in\mathbb{R}\)</span> be arbitrary, for a simplicial complex <span class="math inline">\(\mathcal{K}\)</span> with a discrete Morse function <span class="math inline">\(f:\mathcal{K}\to\mathbb{R}\)</span>, the level sub-complexes is one induced by all simplicies <span class="math inline">\(\Delta\in\mathcal{K}\)</span> satisfying <span class="math inline">\(f(\Delta)\leq c\)</span> with all of their faces:
+<span class="math display">\[\mathcal{K}(c) = \bigcup_{f(\Delta)\leq c}\bigcup_{\Delta&#39;\in\partial\Delta} \Delta\]</span></p>
+<p><strong>Theorem</strong> <u>The collapse theorem</u> Let there be a simplicial complex <span class="math inline">\(\mathcal{K}\)</span> with a gradient field <span class="math inline">\(\mathcal{V}\)</span> induced by an arbitrary discrete Morse function <span class="math inline">\(f:\mathcal{K}\to\mathbb{R}\)</span>. For an arbitrary interval <span class="math inline">\([a,b]\)</span> <span class="math inline">\((\forall a,b\in\mathbb{R})\)</span>, if there exists no critical simplex <span class="math inline">\(\Delta\in\mathcal{K}\)</span> induced by <span class="math inline">\(f\)</span> such that <span class="math inline">\(f(\Delta_{\text{Critical}})\in [a,b]\)</span> then <span class="math inline">\(\mathcal{K}(b)\searrow\mathcal{K}(a)\)</span>. Otherwise, assume there exists an arbitrary <span class="math inline">\(k-\)</span>simplex <span class="math inline">\(\Delta^k\)</span> (<span class="math inline">\(k\in\mathbb{N}\)</span>) such that <span class="math inline">\(f(\Delta^k) \in [a,b]\)</span>.</p>
+<p><u>Proof</u> Let there be a simplicial complex <span class="math inline">\(\mathcal{K}\)</span> with a gradient field <span class="math inline">\(\mathcal{V}\)</span> induced by an arbitrary discrete Morse function <span class="math inline">\(f:\mathcal{K}\to\mathbb{R}\)</span>. Supposed that there exists no critical simplex <span class="math inline">\(\Delta\in\mathcal{K}\)</span> induced by <span class="math inline">\(f\)</span> such that <span class="math inline">\(f(\Delta_{\text{Critical}})\in [a,b]\)</span> for arbitrary interval <span class="math inline">\([a,b]\subset\mathbb{R}\)</span>. If for all arbitrary simplex <span class="math inline">\(\Delta \in\mathcal{K}\)</span>, then <span class="math inline">\(f(\Delta)\notin[a,b]\)</span> so <span class="math inline">\(\mathcal{K}(b)\searrow\mathcal{K}(a)\)</span>. Otherwise, let <span class="math inline">\(\epsilon &gt;0\)</span> be arbitrary such that there exists a unique <span class="math inline">\(\Delta\in\mathcal{K}\)</span> satisfying <span class="math inline">\(f(\Delta)\in [b-\epsilon,b] \subset [a,b]\)</span> . By definition of <span class="math inline">\(\mathcal{V}\)</span>, either:</p>
+<ul>
+<li><p>There exists <span class="math inline">\(\Delta^{k} \in \mathcal{K}(b)\)</span> such that <span class="math inline">\(\Delta\in \partial\Delta^{k}\)</span> and <span class="math inline">\(f(\Delta) \leq f(\Delta^{k})\)</span></p></li>
+<li><p>Or there exists <span class="math inline">\(\Delta^{k} \in \mathcal{K}(b)\)</span> such that <span class="math inline">\(\Delta^{k} \in \partial\Delta\)</span> and <span class="math inline">\(f(\Delta^{k}) \leq f(\Delta)\)</span></p></li>
+</ul>
+<p>Without loss of generality, assume there is <span class="math inline">\(\Delta^{k} \in \mathcal{K}(b)\)</span> such that <span class="math inline">\(\Delta \in \partial\Delta^{k}\)</span> and <span class="math inline">\(f(\Delta) \leq f(\Delta^{k})\)</span>, then it must be the case that <span class="math inline">\(\Delta\)</span> is a free-face of <span class="math inline">\(\Delta^{k}\)</span> in <span class="math inline">\(\mathcal{K}(b)\)</span>. By way of contradiction, assume <span class="math inline">\(\Delta\)</span> is not a free-face of <span class="math inline">\(\Delta^{k}(b)\)</span>, then there exists another <span class="math inline">\(k-\)</span>simplex <span class="math inline">\(\tau^k \in \mathcal{K}(b)\)</span> (<span class="math inline">\(\tau^k \neq \Delta^k\)</span>) such that <span class="math inline">\(\Delta\in\partial\tau^k\)</span>. By definition of <span class="math inline">\(f\)</span>, it must be that <span class="math inline">\(f(\tau^{k})&gt; f(\Delta^{k})\)</span> since <span class="math inline">\(\tau^{k}\)</span> and <span class="math inline">\(\Delta^{k}\)</span> are of the dimension and to make sure only 1 co-face of <span class="math inline">\(\Delta\)</span> has the same Morse value. Since <span class="math inline">\(\tau^k \in \mathcal{K}(b)\)</span>:
+<span class="math display">\[b-\epsilon &lt; f(\Delta) \leq f(\Delta^K) &lt; f(\tau^k) &lt; b\]</span>
+Since we assume there were no critical simplex in <span class="math inline">\([b-\epsilon,b]\subset[a,b]\)</span>, then <span class="math inline">\(\tau^k\)</span> is another regular simplex in <span class="math inline">\([b-\epsilon,b]\)</span>, which is a contradiction since we assume <span class="math inline">\(\Delta^k\)</span> is the only regular simplex in <span class="math inline">\([b-\epsilon,b]\)</span>. By repeating the same proccess for <span class="math inline">\([b-\epsilon&#39;,b-\epsilon]\subset[a,b-\epsilon]\)</span> and so on. Thus, it must be that <span class="math inline">\(\Delta\)</span> is a free-face of <span class="math inline">\(\Delta^k\)</span> in <span class="math inline">\(\mathcal{K}(b)\)</span>. The case is the same for if there exists <span class="math inline">\(\Delta^{k} \in \mathcal{K}(b)\)</span> such that <span class="math inline">\(\Delta^{k} \in \partial\Delta\)</span> and <span class="math inline">\(f(\Delta^{k}) \leq f(\Delta)\)</span>, therefore it must be true that <span class="math inline">\(\mathcal{K}(b)\searrow\mathcal{K}(a)\)</span>.</p>
+<center>
+<img src="dataset/subtria.png" width="750" />
+</center>
+<p><span class="math display">\[
+\begin{aligned}\text{Figure 2.7:} &amp;\text{ An example of sublevel set filtration of a simplicial complex with a discrete Morse function.} \\
+\end{aligned}
+\]</span></p>
+<p><strong>Theorem</strong> <u>Lower-star filtration</u> Let <span class="math inline">\(\mathcal{K}\)</span> be a simplicial complex consisting of <span class="math inline">\(m\)</span> simplices and a function <span class="math inline">\(f:V(\mathcal{K})\to \mathbb{R}, v_i\mapsto\mathbb{R}\)</span> that assigning a real value for all vectors contained in any arbitrary simplex in <span class="math inline">\(\mathcal{K}\)</span>. Rewritten arbitrary <span class="math inline">\(k-\)</span>simplex of <span class="math inline">\(\mathcal{K}\)</span> as collection of vectors <span class="math inline">\([v_0,v_1,\dots,v_{k+1}]\)</span>, define the Morse function <span class="math inline">\(f&#39;:\mathcal{K}\to\mathbb{R}\)</span> as
+<span class="math display">\[f&#39;([v_0,v_1,\dots,v_{k}])=\max\{\{f(v_i)\vert i=0,\dots,k\}\}\]</span>
+Reordered to simplicies in <span class="math inline">\(\mathcal{K}\)</span> into an ordered sequences <span class="math inline">\(S = \Delta_1,\Delta_2,\dots\Delta_m\)</span> where faces of <span class="math inline">\(\Delta_k\)</span> appears before <span class="math inline">\(\Delta_k\)</span> for <span class="math inline">\(i=1,2,\dots,m\)</span>. For decreasing <span class="math inline">\(\epsilon_i &gt; 0\)</span> (<span class="math inline">\(i = 0,1,2,\dots\)</span>)consider the sublevel sets chain complex:
+<span class="math display">\[\mathcal{K}_{\ast}: \dots \overset{\partial_{n+1}}{\longrightarrow}\mathcal{K}(\epsilon_n)\overset{\partial_{n}}{\longrightarrow}\mathcal{K}(\epsilon_{n-1})\overset{\partial_{n-1}}{\longrightarrow}\dots\overset{\partial_{4}}{\longrightarrow}\mathcal{K}(\epsilon_{3})\overset{\partial_{3}}{\longrightarrow}\mathcal{K}(\epsilon_{2})\overset{\partial_{2}}{\longrightarrow}\mathcal{K}(\epsilon_{1})\overset{\partial_{1}}{\longrightarrow}\mathcal{K}(\epsilon_{0}) = \mathcal{K}\]</span>
+Passing to homology, we have the persistence module <span class="math inline">\(H_\ast = \bigoplus_{z\in\mathbb{Z}_2}H(\mathcal{K}(\epsilon_i))\)</span>. A <u>persistent pairing</u> induced by <span class="math inline">\(\mathcal{K}_\ast\)</span> is the pair of simplicial complex <span class="math inline">\((\Delta_i,\Delta_j)\)</span> for <span class="math inline">\(\Delta_i \in \mathcal{K}(\epsilon_i),\Delta_j \in \mathcal{K}(\epsilon_j)\)</span> are the critical simplices of their respective homology class. Let <span class="math inline">\(\text{pers}(\Delta_i,\Delta_j) = f&#39;(\Delta_j)-f&#39;(\Delta_i)\)</span> denotes the persistence of all arbitrary persistence-pairing, which indicates the life-time where a critical simplex is created at the time <span class="math inline">\(i\)</span> and destroyed at time <span class="math inline">\(j\)</span>. Since not all simplicies can be paired, let creates the a simplex <span class="math inline">\(\Delta_\infty\)</span> such that <span class="math inline">\(f&#39;(\Delta_\infty)\)</span> be arbitrary large (hence, <span class="math inline">\(\text{pers}(\Delta,\Delta_\infty)=\infty\)</span>).</p>
+<center>
+<img src="dataset/exam1.png" width="750" />
+</center>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-morse.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
