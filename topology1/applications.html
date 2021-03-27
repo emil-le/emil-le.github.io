@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Applications | Discrete Morse theory and application in topological data analysis.</title>
+  <meta name="description" content="Capstone Project." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Applications | Discrete Morse theory and application in topological data analysis." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Capstone Project." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Applications | Discrete Morse theory and application in topological data analysis." />
+  
+  <meta name="twitter:description" content="Capstone Project." />
+  
+
+<meta name="author" content="Emil Le" />
+
+
+<meta name="date" content="2021-03-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="discrete-morse-theory.html"/>
+<link rel="next" href="conclusion.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/rglWebGL-binding-0.104.16/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-0.104.16/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-0.104.16/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-0.104.16/CanvasMatrix.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Topology</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#morse-theory"><i class="fa fa-check"></i><b>1.2</b> Morse Theory</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#algebraic-topology"><i class="fa fa-check"></i><b>1.3</b> Algebraic topology</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="discrete-morse-theory.html"><a href="discrete-morse-theory.html"><i class="fa fa-check"></i><b>2</b> Discrete Morse theory</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="discrete-morse-theory.html"><a href="discrete-morse-theory.html#discrete-gradient-field"><i class="fa fa-check"></i><b>2.1</b> Discrete gradient field</a></li>
+<li class="chapter" data-level="2.2" data-path="discrete-morse-theory.html"><a href="discrete-morse-theory.html#morse-homology"><i class="fa fa-check"></i><b>2.2</b> Morse homology</a></li>
+<li class="chapter" data-level="2.3" data-path="discrete-morse-theory.html"><a href="discrete-morse-theory.html#sublevel-set-filtration"><i class="fa fa-check"></i><b>2.3</b> Sublevel set filtration</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>3</b> Applications</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="applications.html"><a href="applications.html#modeling-noisy-image-segmentation"><i class="fa fa-check"></i><b>3.1</b> Modeling noisy image segmentation</a></li>
+<li class="chapter" data-level="3.2" data-path="applications.html"><a href="applications.html#gene-co-expression-network-analysis"><i class="fa fa-check"></i><b>3.2</b> Gene co-expression network analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>4</b> Conclusion</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="conclusion.html"><a href="conclusion.html#references"><i class="fa fa-check"></i><b>4.1</b> References</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Discrete Morse theory and application in topological data analysis.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="applications" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Applications</h1>
+<div id="modeling-noisy-image-segmentation" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Modeling noisy image segmentation</h2>
+<p>This section is to demonstrate an application from discrete Morse theory for image segmentation. The segmentation of medical image (such as CT scan or MRI) requires high accuracy, however, image noises make this task very difficult as clusters could have broken edges or inaccurate gaps. We we implement the segmentation model that are robust to noise using methods from (). The architecture of the algorithm can be simplified as:
+<span class="math display">\[\text{Input Image}  \longrightarrow  \text{Triangulation }  \longrightarrow \text{Density Map } \rho \longrightarrow   \text{Persistence diagram }\]</span></p>
+<p>From the input image, we can represent each pixel as a point in space. For this model, we assume a triangulation <span class="math inline">\(\mathcal{K}\)</span> from the input images and we only consider the <span class="math inline">\(0-\)</span>simplex, <span class="math inline">\(1-\)</span>simplex, and <span class="math inline">\(2-\)</span>simplex. We extract the manifold from <span class="math inline">\(\mathcal{K}\)</span> by the grayscale density map <span class="math inline">\(\rho: \mathcal{K}\to \mathbb{R}\)</span>, in this case, we choose the Laplacian of Gaussian spatial filter for the density map. Lastly, we apply the sublevel set filtration to compute the persistence diagram for the critical points of the diagram for noise modeling, critical points that have long survival interval represent the stable feature of the image, while those have short survival interval accounts for noise.</p>
+<center>
+<img src="dataset/density3.png" width="750" />
+</center>
+<p><strong>Demonstration</strong></p>
+<p>We used brain tumour MRI and histopathologic colorectal dataset from Kaggle to demonstrate the algorithm.</p>
+<center>
+<img src="dataset/ct1.png" width="750" />
+</center>
+<center>
+<img src="dataset/ct2.png" width="750" />
+</center>
+</div>
+<div id="gene-co-expression-network-analysis" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Gene co-expression network analysis</h2>
+<p>In this section, we try to identify the topological structure of the gene co-expression networks belong to patients with bipolar disorder or schizophrenia disorder. Bipolar disorder and schizophrenia are psychiatric disorders that has high mortality rates, which makes the task of diagnosis crucial to improve life quality. Symptoms of bipolar disorder includes manic episodes, which are characterized by increased energy with intense delusion thoughts, while schizophrenia disorder includes psychosis, which are characterized by hallucinations and detachment to reality. In general, different symptoms of psychiatric disorders can sometime look similar enough despite being completely separated, which leads to misdiagnosis. Thus, we want define the problem statement, whether using applications from discrete Morse theory and TDA, we can identify significant biomarkers of these two disorders.</p>
+<center>
+<img src="dataset/genenetwork2.png" width="450" />
+</center>
+<p><span class="math display">\[
+\begin{aligned}\text{Figure 4.1:} &amp;\text{ Example of a gene co-expression network.}
+\end{aligned}
+\]</span><br />
+We collect the gene co-expression network data from NCBI. The gene co-expression network is represented as an undirected network <span class="math inline">\(G = (V, E)\)</span>, where the vertex set <span class="math inline">\(V\)</span> consists of genes and an edge in the edge set <span class="math inline">\(E\)</span> represents the similarity in expression level between 2 genes. A clique of a network <span class="math inline">\(G = (V, E)\)</span> is a sub-network <span class="math inline">\(C\subset G\)</span>, where two distincts vertices in <span class="math inline">\(C\)</span> are connected by an edge. We used the methods introduced by Kannan et. al. to capture the persistence cliques presented in the gene co-expression networks to compare the two psychiatric disorders. Let <span class="math inline">\(g_\max\)</span> denotes the maximum degree of <span class="math inline">\(G\)</span>, we define the discrete Morse function on the vertex set of<span class="math inline">\(G\)</span>, <span class="math inline">\(f: V(G)\to\mathbb{R}\)</span>, as:
+<span class="math display">\[f(v) = g_\max - \deg(v) + \epsilon\]</span>
+where <span class="math inline">\(\epsilon\)</span> are randomly generated from the uniform distribution <span class="math inline">\(\text{Uniform}(0,0.5)\)</span>.</p>
+<p><strong>Demonstration</strong></p>
+<p>The resulted is the barcode diagrams of betti <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> for the bipolar disorder and schizophrenia co-expression network.</p>
+<center>
+<img src="dataset/persistencediagram.png" width="750" />
+</center>
+<p><span class="math display">\[
+\begin{aligned}\text{Figure 4.2:} &amp;\text{ (Top row) Persistence diagram of 0-hole respectively for}\\
+&amp;\text{ bipolar disorder and schizophrenia network.}\\
+&amp;\text{ The bottleneck distance of the two diagrams is } 0.173.\\
+&amp;\text{ (Bottom row) Persistence diagram of 1-hole respectively for} \\&amp;\text{ bipolar disorder and schizophrenia network.}\\
+&amp;\text{ The bottleneck distance of the two diagrams is } 0.153.\\
+\end{aligned}
+\]</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="discrete-morse-theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-application.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
